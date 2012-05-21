@@ -23,6 +23,20 @@
 			echo htmlentities($content, ENT_QUOTES, APP_CHARSET);
 		}
 	}
+
+	switch($fontsize){
+		case 1:
+			echo "</h1>";
+			break;
+		case 2:
+			echo"</h2>";
+			break;
+		case 3:
+			echo"</h3>";
+			break;
+		case 4:
+			echo"</h4>";
+			break;
+	}
 ?>
 
-</h>
