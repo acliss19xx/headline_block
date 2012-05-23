@@ -10,10 +10,13 @@
 <div class="ccm-block-field-group">
 	<h2>見出し文字</h2>
 
-	<?php echo $form->radio('headline',1,($headline == 1) or (!$headline)); ?> 任意テキスト
-	<?php echo $form->radio('headline',2,($headline == 2)); ?>　ページタイトル
-	
-	<?php  echo $form->text('content', $content, array('style' => 'width: 95%;', 'maxlength' => '20')); ?>
+	<?php echo $form->radio('headline',1,($headline == 1) or (!$headline),array('onClick' => 'content.disabled = false')); ?>任意テキスト
+	<?php echo $form->text('content', $content, array('style' => 'width: 95%;', 'maxlength' => '20')); ?>
+
+	<?php echo $form->radio('headline',2,($headline == 2),array('onClick' => 'content.disabled = true')); ?>ページタイトル <br/>
+	<?php 	$c = Page::getCurrentPage();
+		echo $c->getCollectionName();
+	?>
 </div>
 
 <div class="ccm-block-field-group">
