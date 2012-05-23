@@ -7,7 +7,7 @@ class KansaiugHeadlineBlockController extends BlockController {
 	protected $btTable = 'btKansaiugHeadline';
 	
 	protected $btInterfaceWidth = "350";
-	protected $btInterfaceHeight = "150";
+	protected $btInterfaceHeight = "250";
 	
 	protected $btCacheBlockRecord = true;
 	protected $btCacheBlockOutput = true;
