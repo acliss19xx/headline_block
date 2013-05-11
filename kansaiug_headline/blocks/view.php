@@ -1,42 +1,13 @@
-<?php  defined('C5_EXECUTE') or die("Access Denied.");
-?>
+<?php  defined('C5_EXECUTE') or die("Access Denied."); ?>
 <?php 
-	switch($fontsize){
-		case 1:
-			echo "<h1>";
-			break;
-		case 2:
-			echo"<h2>";
-			break;
-		case 3:
-			echo"<h3>";
-			break;
-		case 4:
-			echo"<h4>";
-			break;
-	}
+	$start_tag = '<h' . $fontsize . '>';
+	$end_tag = '</h' . $fontsize . '>';
 
 	if ($headline==2) {
-		echo $pagename;
-	} else {
-		if (!empty($content)){
-			echo htmlentities($content, ENT_QUOTES, APP_CHARSET);
-		}
-	}
-
-	switch($fontsize){
-		case 1:
-			echo "</h1>";
-			break;
-		case 2:
-			echo"</h2>";
-			break;
-		case 3:
-			echo"</h3>";
-			break;
-		case 4:
-			echo"</h4>";
-			break;
+		$content = $pagename;
 	}
 ?>
 
+<?php echo $start_tag; //hタグ ?>
+	<?php echo htmlentities($content, ENT_QUOTES, APP_CHARSET); ?>
+<?php echo $end_tag;  //h綴じタグ ?>
