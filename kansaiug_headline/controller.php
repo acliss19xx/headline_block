@@ -1,31 +1,26 @@
-<?php  defined('C5_EXECUTE') or die("Access Denied.");
+<?php
 
-class KansaiugHeadlineBlockController extends BlockController {
+defined('C5_EXECUTE') or die(_("Access Denied."));
+
+class KansaiugHeadlinePakage extends Package {
 	
-	protected $btName = '見出し';
-	protected $btDescription = '';
-	protected $btTable = 'btKansaiugHeadline';
-	
-	protected $btInterfaceWidth = "350";
-	protected $btInterfaceHeight = "250";
-	
-	protected $btCacheBlockRecord = true;
-	protected $btCacheBlockOutput = true;
-	protected $btCacheBlockOutputOnPost = true;
-	protected $btCacheBlockOutputForRegisteredUsers = false;
-	protected $btCacheBlockOutputLifetime = CACHE_LIFETIME;
-	
-	public function getSearchableContent() {
-		return $this->content;
+	protected $pkgHandle = 'kansaiug_headline';
+	protected $appVersionRequired = '5.5';
+	protected $pkgVersion ='1.0';
+
+	public function getPackageDescription() {
+		return '見出しブロック';
 	}
-
-
-	public function view() {
-		$c = Page::getCurrentPage();
-		$this->set('pagename',$c->getCollectionName());
-
+	
+	public function getPackgeName() {
+		return 'kansaiug_headline';
 	}
-
-
-
+	
+	public function install() {
+		$pkg = parrent::install();
+		
+		BlockType::installBlockTypeFromPackage('kansaiug_headline', $pkg);
+	}
 }
+
+?>
